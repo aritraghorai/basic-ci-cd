@@ -12,10 +12,14 @@ jobs:
         run : yarn
       - name: Build The Project
         run: yarn build
+      - name: set vercel cli
+        run: |
+          cd build
+          mkdir .vercel
+          cd .vercel
+          touch project.json
+          echo '{"orgId":"wd1zUUv2rizgTq6WkWfEMhgF","projectId":"prj_zgCV6b8xCo7k88ELtwpASRm9QK6D"}' > project.json
       - name: Deploying The Project
-        env: 
-         VERCEL_ORG_ID: "wd1zUUv2rizgTq6WkWfEMhgF"
-         VERCEL_PROJEC_ID: "prj_zgCV6b8xCo7k88ELtwpASRm9QK6D" 
         run: yarn deploy
       - name: Finished build
         run : echo "Hurry"
