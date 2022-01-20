@@ -8,4 +8,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
             node-version: '17'
-      - run: node -v
+      - name: Add Node Module
+        run : yarn
+      - name: Build The Project
+        run: yarn build
+      - name: Finished build
+        run : echo "Hurry"
